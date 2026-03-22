@@ -18,6 +18,15 @@ export default function TypingText({
   const [displayed, setDisplayed] = useState("");
   const [cycle, setCycle] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
+
+  // Cursor blinking every 530ms (independent of typing state)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 530);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (isPaused) {
@@ -26,7 +35,10 @@ export default function TypingText({
           setDisplayed("");
           setCycle((prev) => prev + 1);
           setIsPaused(false);
-        } // else: stop, keep full text
+        } else {
+          // All cycles done, stay paused with full text visible, cursor still blinking
+          setIsPaused(false); // ensure we exit paused state but don't clear text
+        }
       }, pauseAfterMs);
       return () => clearTimeout(timer);
     } else if (displayed.length < text.length) {
@@ -42,8 +54,8 @@ export default function TypingText({
 
   return (
     <span>
-      {displayed}
-      <span className={`inline-block w-1 h-8 ml-1 align-middle bg-primary-400 transition-opacity ${isPaused || displayed.length === text.length ? 'opacity-0' : 'opacity-100'}`} />
+      {displayed || text}
+      <span className={`inline-block w-1 h-8 ml-1 align-middle bg-primary-400 transition-opacity ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
     </span>
   );
 }
