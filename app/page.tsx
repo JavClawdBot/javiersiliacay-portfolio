@@ -1,6 +1,7 @@
 "use client";
 
-import { Github, Mail, MapPin, Code, Cpu, Server, ExternalLink, ChevronRight } from "lucide-react";
+import { Github, Mail, MapPin, Code, Cpu, Server, ExternalLink, ChevronRight, Facebook } from "lucide-react";
+import { motion } from "framer-motion";
 import AnimatedCppCode from "./components/AnimatedCppCode";
 import TypingText from "./components/TypingText";
 
@@ -186,9 +187,14 @@ export default function Home() {
         </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, idx) => (
-            <article
+            <motion.article
               key={project.title}
-              className="group relative flex flex-col p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-primary-500/50 transition-all hover:shadow-lg hover:shadow-primary-500/10 overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative flex flex-col p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-primary-500/50 transition-all hover:shadow-xl hover:shadow-primary-500/20 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative flex-1">
@@ -221,7 +227,7 @@ export default function Home() {
                   </span>
                 )}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -255,12 +261,22 @@ export default function Home() {
         <p className="text-slate-400 mb-8 max-w-xl mx-auto">
           I'm open to collaborations, freelance work, and interesting projects. Feel free to reach out!
         </p>
-        <a
-          href="mailto:javier.siliacay@example.com"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white rounded-full font-medium transition-colors shadow-lg shadow-primary-500/25"
-        >
-          <Mail size={18} /> Send Email
-        </a>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="mailto:siliacay.javier@gmail.com"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white rounded-full font-medium transition-colors shadow-lg shadow-primary-500/25"
+          >
+            <Mail size={18} /> Send Email
+          </a>
+          <a
+            href="https://www.facebook.com/siliacayjavier/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-primary-500 text-slate-200 rounded-full font-medium transition-colors"
+          >
+            <Facebook size={18} /> Facebook
+          </a>
+        </div>
       </section>
 
       {/* Footer */}
