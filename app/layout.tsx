@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Javier Siliacay - Embedded Systems & Full-Stack Developer",
   description: "Portfolio of Javier Siliacay — Full-stack developer and embedded systems engineer from the Philippines. Building intelligent systems that combine hardware, web, and AI.",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

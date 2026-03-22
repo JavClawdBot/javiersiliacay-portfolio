@@ -77,9 +77,12 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600">
-          <TypingText text="Javier Siliacay" repeatCount={1} speed={50} pauseAfterMs={2000} />
-        </h1>
+        <div className="flex items-center gap-4 mb-6">
+          <img src="/logo.svg" alt="JS Logo" className="w-12 h-12 md:w-16 md:h-16" />
+          <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600">
+            <TypingText text="Javier Siliacay" repeatCount={1} speed={50} pauseAfterMs={2000} />
+          </h1>
+        </div>
         <p className="text-xl md:text-2xl text-slate-400 mb-4 max-w-2xl">
           Embedded Systems & Full-Stack Developer
         </p>
