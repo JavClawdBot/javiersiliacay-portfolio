@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Mail, MapPin, Code, Cpu, Server, ExternalLink, ChevronRight } from "lucide-react";
 
 const techStack = [
@@ -72,17 +70,10 @@ const stats = [
 ];
 
 export default function Home() {
-  const { scrollY } = useScroll();
-  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const heroScale = useTransform(scrollY, [0, 400], [1, 0.95]);
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <motion.section
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="min-h-[90vh] flex flex-col items-center justify-center px-6 text-center snap-start"
-      >
+      <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 text-center">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600">
           Javier Siliacay
         </h1>
@@ -110,58 +101,55 @@ export default function Home() {
         </div>
 
         <div className="mt-16 flex flex-wrap justify-center gap-3 text-sm text-slate-500">
-          {techStack.slice(0, 6).map((tech) => (
-            <span key={tech.name} className="flex items-center gap-1 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700">
-              <tech.icon size={14} className="text-primary-400" /> {tech.name}
-            </span>
-          ))}
+          {techStack.slice(0, 6).map((tech) => {
+            const Icon = tech.icon;
+            return (
+              <span key={tech.name} className="flex items-center gap-1 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700">
+                <Icon size={14} className="text-primary-400" /> {tech.name}
+              </span>
+            );
+          })}
         </div>
-      </motion.section>
+      </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6 max-w-6xl mx-auto w-full snap-start">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-2">
-            <span className="w-1 h-8 bg-primary-500 rounded-full" /> About Me
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4 text-slate-300 leading-relaxed">
-              <p>
-                I'm a passionate developer from the Philippines, currently studying at <strong className="text-primary-400">University of Science and Technology of Southern Philippines (USTP)</strong>, focused on building intelligent systems that combine embedded electronics, full-stack web platforms, and AI-driven automotive solutions.
-              </p>
-              <p>
-                My work spans from Arduino / ESP-based hardware systems to production-grade full-stack applications using Next.js, Supabase, TypeScript, and modern AI integrations.
-              </p>
-              <p>
-                I enjoy designing systems where hardware and software work together — from sensors and real-time diagnostics to complete automotive service platforms deployed on the web.
-              </p>
-            </div>
-            <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 space-y-4">
-              <h3 className="text-xl font-semibold text-primary-400">Quick Facts</h3>
-              <ul className="space-y-3 text-slate-300">
-                <li className="flex items-center gap-2">
-                  <MapPin size={16} className="text-primary-400" />
-                  Cagayan de Oro, Philippines
-                </li>
-                <li className="flex items-center gap-2">
-                  <Cpu size={16} className="text-primary-400" />
-                  B.S. Autotronics, USTP
-                </li>
-                <li className="flex items-center gap-2">
-                  <Code size={16} className="text-primary-400" />
-                  Full-Stack + Embedded
-                </li>
-                <li className="flex items-center gap-2">
-                  <Server size={16} className="text-primary-400" />
-                  IoT & Cloud Integrations
-                </li>
-              </ul>
-              <p className="text-sm text-slate-400 pt-2 border-t border-slate-700 font-mono whitespace-pre-wrap">
+      <section id="about" className="py-24 px-6 max-w-6xl mx-auto w-full">
+        <h2 className="text-3xl font-bold mb-6 flex items-center gap-2">
+          <span className="w-1 h-8 bg-primary-500 rounded-full" /> About Me
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-4 text-slate-300 leading-relaxed">
+            <p>
+              I'm a passionate developer from the Philippines, currently studying at <strong className="text-primary-400">University of Science and Technology of Southern Philippines (USTP)</strong>, focused on building intelligent systems that combine embedded electronics, full-stack web platforms, and AI-driven automotive solutions.
+            </p>
+            <p>
+              My work spans from Arduino / ESP-based hardware systems to production-grade full-stack applications using Next.js, Supabase, TypeScript, and modern AI integrations.
+            </p>
+            <p>
+              I enjoy designing systems where hardware and software work together — from sensors and real-time diagnostics to complete automotive service platforms deployed on the web.
+            </p>
+          </div>
+          <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 space-y-4">
+            <h3 className="text-xl font-semibold text-primary-400">Quick Facts</h3>
+            <ul className="space-y-3 text-slate-300">
+              <li className="flex items-center gap-2">
+                <MapPin size={16} className="text-primary-400" />
+                Cagayan de Oro, Philippines
+              </li>
+              <li className="flex items-center gap-2">
+                <Cpu size={16} className="text-primary-400" />
+                B.S. Autotronics, USTP
+              </li>
+              <li className="flex items-center gap-2">
+                <Code size={16} className="text-primary-400" />
+                Full-Stack + Embedded
+              </li>
+              <li className="flex items-center gap-2">
+                <Server size={16} className="text-primary-400" />
+                IoT & Cloud Integrations
+              </li>
+            </ul>
+            <p className="text-sm text-slate-400 pt-2 border-t border-slate-700 font-mono whitespace-pre-wrap">
 {`#include
 void Javier::introduction() {
     char location[] = "Philippines";
@@ -169,149 +157,114 @@ void Javier::introduction() {
     bool coffee_powered = true;
     while (coffee_powered) { buildCoolProjects(); }
 }`}
-              </p>
-            </div>
+            </p>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Tech Stack */}
-      <section id="tech-stack" className="py-24 px-6 max-w-6xl mx-auto w-full snap-start">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
-            <span className="w-1 h-8 bg-primary-500 rounded-full" /> Tech Arsenal
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {techStack.map((tech) => {
-              const Icon = tech.icon;
-              return (
-                <motion.div
-                  key={tech.name}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover:border-primary-500/50 transition-colors"
-                >
-                  <Icon size={20} className="text-primary-400" />
-                  <span className="text-slate-200">{tech.name}</span>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
+      <section id="tech-stack" className="py-24 px-6 max-w-6xl mx-auto w-full">
+        <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
+          <span className="w-1 h-8 bg-primary-500 rounded-full" /> Tech Arsenal
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {techStack.map((tech) => {
+            const Icon = tech.icon;
+            return (
+              <div
+                key={tech.name}
+                className="flex items-center gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700 hover:border-primary-500/50 transition-colors"
+              >
+                <Icon size={20} className="text-primary-400" />
+                <span className="text-slate-200">{tech.name}</span>
+              </div>
+            );
+          })}
+        </div>
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-24 px-6 max-w-6xl mx-auto w-full snap-start">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
-            <span className="w-1 h-8 bg-primary-500 rounded-full" /> Featured Projects
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, idx) => (
-              <motion.article
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative flex flex-col p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-primary-500/50 transition-all hover:shadow-lg hover:shadow-primary-500/10 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative flex-1">
-                  <h3 className="text-xl font-semibold text-slate-100 group-hover:text-primary-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="mt-3 text-slate-400 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tech.map((t) => (
-                      <span key={t} className="px-2 py-1 text-xs rounded-full bg-slate-700 text-slate-300">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="relative mt-6 flex items-center justify-between">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium text-sm"
-                  >
-                    View Project <ExternalLink size={14} />
-                  </a>
-                  {project.stars > 0 && (
-                    <span className="text-slate-500 text-sm flex items-center gap-1">
-                      ★ {project.stars}
+      <section id="projects" className="py-24 px-6 max-w-6xl mx-auto w-full">
+        <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
+          <span className="w-1 h-8 bg-primary-500 rounded-full" /> Featured Projects
+        </h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, idx) => (
+            <article
+              key={project.title}
+              className="group relative flex flex-col p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-primary-500/50 transition-all hover:shadow-lg hover:shadow-primary-500/10 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative flex-1">
+                <h3 className="text-xl font-semibold text-slate-100 group-hover:text-primary-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="mt-3 text-slate-400 text-sm leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span key={t} className="px-2 py-1 text-xs rounded-full bg-slate-700 text-slate-300">
+                      {t}
                     </span>
-                  )}
+                  ))}
                 </div>
-              </motion.article>
-            ))}
-          </div>
-        </motion.div>
+              </div>
+              <div className="relative mt-6 flex items-center justify-between">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium text-sm"
+                >
+                  View Project <ExternalLink size={14} />
+                </a>
+                {project.stars > 0 && (
+                  <span className="text-slate-500 text-sm flex items-center gap-1">
+                    ★ {project.stars}
+                  </span>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       {/* GitHub Integration & Stats */}
-      <section className="py-24 px-6 max-w-6xl mx-auto w-full snap-start">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+      <section className="py-24 px-6 max-w-6xl mx-auto w-full">
+        <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
+          <span className="w-1 h-8 bg-primary-500 rounded-full" /> GitHub Activity
+        </h2>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          {stats.map((stat) => (
+            <div key={stat.label} className="p-6 rounded-xl bg-slate-800/50 border border-slate-700 text-center">
+              <div className="text-3xl font-bold text-primary-400 mb-2">{stat.value}</div>
+              <div className="text-slate-400 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+        <a
+          href="https://github.com/javiersiliacay"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-primary-500 text-slate-200 rounded-full font-medium transition-colors"
         >
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
-            <span className="w-1 h-8 bg-primary-500 rounded-full" /> GitHub Activity
-          </h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {stats.map((stat) => (
-              <div key={stat.label} className="p-6 rounded-xl bg-slate-800/50 border border-slate-700 text-center">
-                <div className="text-3xl font-bold text-primary-400 mb-2">{stat.value}</div>
-                <div className="text-slate-400 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-          <a
-            href="https://github.com/javiersiliacay"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-primary-500 text-slate-200 rounded-full font-medium transition-colors"
-          >
-            <Github size={20} /> View Full Profile
-          </a>
-        </motion.div>
+          <Github size={20} /> View Full Profile
+        </a>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 px-6 max-w-6xl mx-auto w-full snap-start">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
+      <section id="contact" className="py-24 px-6 max-w-6xl mx-auto w-full text-center">
+        <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
+        <p className="text-slate-400 mb-8 max-w-xl mx-auto">
+          I'm open to collaborations, freelance work, and interesting projects. Feel free to reach out!
+        </p>
+        <a
+          href="mailto:javier.siliacay@example.com"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white rounded-full font-medium transition-colors shadow-lg shadow-primary-500/25"
         >
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-            I'm open to collaborations, freelance work, and interesting projects. Feel free to reach out!
-          </p>
-          <a
-            href="mailto:javier.siliacay@example.com"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white rounded-full font-medium transition-colors shadow-lg shadow-primary-500/25"
-          >
-            <Mail size={18} /> Send Email
-          </a>
-        </motion.div>
+          <Mail size={18} /> Send Email
+        </a>
       </section>
 
       {/* Footer */}
