@@ -1,6 +1,7 @@
 "use client";
 
 import { Github, Mail, MapPin, Code, Cpu, Server, ExternalLink, ChevronRight } from "lucide-react";
+import AnimatedCppCode from "./components/AnimatedCppCode";
 
 const techStack = [
   { name: "TypeScript", icon: Code },
@@ -149,15 +150,9 @@ export default function Home() {
                 IoT & Cloud Integrations
               </li>
             </ul>
-            <p className="text-sm text-slate-400 pt-2 border-t border-slate-700 font-mono whitespace-pre-wrap">
-{`#include
-void Javier::introduction() {
-    char location[] = "Philippines";
-    char university[] = "USTP";
-    bool coffee_powered = true;
-    while (coffee_powered) { buildCoolProjects(); }
-}`}
-            </p>
+            <div className="text-sm text-slate-400 pt-2 border-t border-slate-700">
+              <AnimatedCppCode speed={50} />
+            </div>
           </div>
         </div>
       </section>

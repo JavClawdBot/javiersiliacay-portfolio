@@ -28,6 +28,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* VS Code C++ Dark+ theme colors for syntax highlighting */
+.token-keyword { color: #C586C0; } /* purple */
+.token-string { color: #CE9178; }   /* orange */
+.token-identifier { color: #9CDCFE; } /* light blue */
+.token-preprocessor { color: #C586C0; } /* purple */
+.token-punctuation { color: #D4D4D4; } /* light gray */
+.token-number { color: #B5CEA8; }    /* light green */
+
 :root {
   --background: theme(colors.slate-950);
   --foreground: theme(colors.slate-100);
