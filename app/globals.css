@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Portfolio v2 - fixed GitHub Pages asset serving */
 @theme inline {
   --color-primary-50: #ecfeff;
   --color-primary-100: #cffafe;
