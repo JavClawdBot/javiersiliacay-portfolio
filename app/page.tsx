@@ -55,16 +55,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="projects" className="py-24 px-6 max-w-6xl mx-auto w-full snap-start">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
-          <Projects />
-        </motion.div>
-      </section>
 
       <section id="github" className="py-24 px-6 max-w-6xl mx-auto w-full snap-start">
         <motion.div

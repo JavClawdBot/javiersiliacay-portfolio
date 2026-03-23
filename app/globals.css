@@ -2,16 +2,16 @@
 
 /* Portfolio v4 - final featured projects: autoworx, CircuitoAI, tarafix */
 @theme inline {
-  --color-primary-50: #ecfeff;
-  --color-primary-100: #cffafe;
-  --color-primary-200: #a5f3fc;
-  --color-primary-300: #67e8f9;
-  --color-primary-400: #22d3ee;
-  --color-primary-500: #06b6d4;
-  --color-primary-600: #0891b2;
-  --color-primary-700: #0e7490;
-  --color-primary-800: #155e75;
-  --color-primary-900: #164e63;
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #f59e0b;
+  --color-primary-600: #d97706;
+  --color-primary-700: #b45309;
+  --color-primary-800: #92400e;
+  --color-primary-900: #78350f;
 
   --color-slate-950: #020617;
   --color-slate-900: #0f172a;
@@ -30,12 +30,36 @@
 }
 
 /* VS Code C++ Dark+ theme colors for syntax highlighting */
-.token-keyword { color: #C586C0; } /* purple */
-.token-string { color: #CE9178; }   /* orange */
-.token-identifier { color: #9CDCFE; } /* light blue */
-.token-preprocessor { color: #C586C0; } /* purple */
-.token-punctuation { color: #D4D4D4; } /* light gray */
-.token-number { color: #B5CEA8; }    /* light green */
+.token-keyword {
+  color: #C586C0;
+}
+
+/* purple */
+.token-string {
+  color: #CE9178;
+}
+
+/* orange */
+.token-identifier {
+  color: #9CDCFE;
+}
+
+/* light blue */
+.token-preprocessor {
+  color: #C586C0;
+}
+
+/* purple */
+.token-punctuation {
+  color: #D4D4D4;
+}
+
+/* light gray */
+.token-number {
+  color: #B5CEA8;
+}
+
+/* light green */
 
 :root {
   --background: theme(colors.slate-950);
@@ -58,13 +82,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #020617;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #334155;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #475569;
 }
