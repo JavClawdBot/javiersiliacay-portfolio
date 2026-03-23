@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Portfolio v3 - updated featured projects: autoworx, CircuitoAI, tarafix only */
+/* Portfolio v4 - final featured projects: autoworx, CircuitoAI, tarafix */
 @theme inline {
   --color-primary-50: #ecfeff;
   --color-primary-100: #cffafe;
