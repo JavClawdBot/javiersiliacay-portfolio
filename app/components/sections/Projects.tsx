@@ -12,7 +12,7 @@ const projects = [
     stars: 0,
   },
   {
-    title: "circuitoai",
+    title: "CircuitoAI",
     description: "AI-powered hardware diagnostic environment – a browser-based IDE with real-time serial telemetry and an AI Specialist for vehicle and IoT debugging. Under active development.",
     tech: ["TypeScript", "Next.js", "AI", "IoT"],
     link: "https://github.com/JavierSiliacay/Circuito-AI",
@@ -69,11 +69,6 @@ export default function Projects() {
               >
                 View Project <ExternalLink size={14} />
               </a>
-              {project.stars > 0 && (
-                <span className="text-slate-500 text-sm flex items-center gap-1">
-                  ★ {project.stars}
-                </span>
-              )}
             </div>
           </motion.article>
         ))}
