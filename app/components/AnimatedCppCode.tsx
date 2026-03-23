@@ -134,7 +134,7 @@ export default function AnimatedCppCode({ speed = 50 }: AnimatedCppCodeProps) {
       }, 3000); // 3 second pause before restart
       return () => clearTimeout(restartTimer);
     }
-  }, [visibleTokenCount, speed]);
+  }, [visibleTokenCount, speed, tokens.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {

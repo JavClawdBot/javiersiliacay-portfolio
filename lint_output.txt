@@ -1,0 +1,16 @@
+
+> javiersiliacay-portfolio@0.1.0 lint
+> eslint
+
+
+C:\Users\User\Desktop\websites codebase\my-portfolio\javiersiliacay-portfolio\app\components\AnimatedCppCode.tsx
+  137:6  warning  React Hook useEffect has a missing dependency: 'tokens.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\User\Desktop\websites codebase\my-portfolio\javiersiliacay-portfolio\app\components\sections\About.tsx
+  11:12  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\Desktop\websites codebase\my-portfolio\javiersiliacay-portfolio\app\components\sections\Contact.tsx
+  10:10  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+✖ 3 problems (2 errors, 1 warning)
+
