@@ -7,7 +7,7 @@ export default function Contact() {
     <section id="contact" className="py-24 px-6 max-w-6xl mx-auto w-full text-center">
       <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
       <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-        I'm open to collaborations, freelance work, and interesting projects. Feel free to reach out!
+        I&apos;m open to collaborations, freelance work, and interesting projects. Feel free to reach out!
       </p>
       <div className="flex flex-wrap justify-center gap-4">
         <a

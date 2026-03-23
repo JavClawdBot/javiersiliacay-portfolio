@@ -48,7 +48,8 @@ export default function TypingText({
       return () => clearTimeout(timer);
     } else {
       // Full text shown, pause then restart (if cycles left)
-      setIsPaused(true);
+      const t = setTimeout(() => setIsPaused(true), 0);
+      return () => clearTimeout(t);
     }
   }, [displayed, text, speed, cycle, repeatCount, pauseAfterMs, isPaused]);
 

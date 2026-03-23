@@ -8,7 +8,7 @@ export default function About() {
     <section id="about" className="py-24 px-6 max-w-6xl mx-auto w-full">
       <div className="space-y-4 text-slate-300 leading-relaxed">
         <p>
-          I'm a passionate developer from the Philippines, currently studying at <strong className="text-primary-400">University of Science and Technology of Southern Philippines (USTP)</strong>, focused on building intelligent systems that combine embedded electronics, full-stack web platforms, and AI-driven automotive solutions.
+          I&apos;m a passionate developer from the Philippines, currently studying at <strong className="text-primary-400">University of Science and Technology of Southern Philippines (USTP)</strong>, focused on building intelligent systems that combine embedded electronics, full-stack web platforms, and AI-driven automotive solutions.
         </p>
         <p>
           My work spans from Arduino / ESP-based hardware systems to production-grade full-stack applications using Next.js, Supabase, TypeScript, and modern AI integrations.
