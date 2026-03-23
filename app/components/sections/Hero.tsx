@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 text-center">
       <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600">
-        <TypingText text="Javier Siliacayss" repeatCount={1} speed={50} pauseAfterMs={2000} />
+        <TypingText text="Javier Siliacay" repeatCount={1} speed={50} pauseAfterMs={2000} />
       </h1>
       <p className="text-xl md:text-2xl text-slate-400 mb-4 max-w-2xl">
         Embedded Systems & Full-Stack Developer
