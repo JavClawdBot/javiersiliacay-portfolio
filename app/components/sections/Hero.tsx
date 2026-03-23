@@ -1,7 +1,7 @@
 "use client";
 
 import TypingText from "../TypingText";
-import { Github, Chevron Right } from "lucide-react";
+import { Github, ChevronRight } from "lucide-react";
 
 const techStack = [
   { name: "TypeScript" }, { name: "Next.js" }, { name: "Supabase" },
