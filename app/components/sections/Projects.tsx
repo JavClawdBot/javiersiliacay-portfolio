@@ -6,45 +6,24 @@ import { ExternalLink } from "lucide-react";
 const projects = [
   {
     title: "autoworx-system",
-    description: "Vehicle repair appointment booking and management system with real-time tracking, cost management, and admin dashboard.",
-    tech: ["TypeScript", "Next.js", "Supabase"],
+    description: "Vehicle repair appointment booking and management platform with real-time tracking, cost management, admin dashboard, and Google OAuth. In production by Autoworx.",
+    tech: ["TypeScript", "Next.js", "Supabase", "Google OAuth"],
     link: "https://github.com/JavierSiliacay/autoworx-system",
     stars: 0,
   },
   {
-    title: "Circuito-AI",
-    description: "A browser-based hardware development environment featuring an Automotive Diagnostic Station, real-time serial telemetry, and an AI Specialist for advanced vehicle and IoT debugging.",
+    title: "circuitoai",
+    description: "AI-powered hardware diagnostic environment – a browser-based IDE with real-time serial telemetry and an AI Specialist for vehicle and IoT debugging. Under active development.",
     tech: ["TypeScript", "Next.js", "AI", "IoT"],
     link: "https://github.com/JavierSiliacay/Circuito-AI",
     stars: 0,
   },
   {
-    title: "Mini-Solar-and-Wind-Hybrid-Charging-System",
-    description: "Hybrid renewable-energy monitoring system powered by solar and wind sources with infrared sensors, lithium-ion battery storage, and real-time monitoring.",
-    tech: ["Arduino", "Sensors", "Energy"],
-    link: "https://github.com/JavierSiliacay/Mini-Solar-and-Wind-Hybrid-Charging-System",
+    title: "tarafix",
+    description: "Home services marketplace connecting customers with service providers. Features advanced caching with Upstash Redis and TanStack Query for optimal performance. Currently improving.",
+    tech: ["TypeScript", "Next.js", "Supabase", "Redis", "TanStack Query"],
+    link: "https://github.com/JavierSiliacay/tarafix",
     stars: 0,
-  },
-  {
-    title: "Fire-Gas-Detection-with-Automated-Bin-Level-Alert",
-    description: "Smart multi-sensor system that detects fire, gas levels, and bin capacity in real time. Automatic safety responses with alerts.",
-    tech: ["Arduino", "Sensors", "IoT"],
-    link: "https://github.com/JavierSiliacay/Fire-Gas-Detection-with-Automated-Bin-Level-Alert",
-    stars: 1,
-  },
-  {
-    title: "TFT-WebServer-RPMGauge",
-    description: "ESP32-based Honda Civic RPM gauge using ultrasonic sensor and 2.4\" TFT display. Features real-time RPM visualization and WiFi web interface.",
-    tech: ["ESP32", "Arduino C++", "WebServer"],
-    link: "https://github.com/JavierSiliacay/TFT-WebServer-RPMGauge",
-    stars: 0,
-  },
-  {
-    title: "EMF-Detector",
-    description: "Arduino-based EMF detector visualizing EMF levels on an OLED as a dynamic wave. Includes LED and buzzer alerts for low/medium/high readings.",
-    tech: ["Arduino", "OLED", "Sensors"],
-    link: "https://github.com/JavierSiliacay/EMF-Detector",
-    stars: 2,
   },
 ];
 
