@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -100,9 +101,10 @@ export default function Chatbot() {
           }
         }
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Internal Error";
       console.error("Chat Error:", error);
-      setMessages((prev) => [...prev, { role: "assistant", content: `System Error: ${error.message}` }]);
+      setMessages((prev) => [...prev, { role: "assistant", content: `System Error: ${errorMessage}` }]);
     } finally {
       setIsLoading(false);
     }

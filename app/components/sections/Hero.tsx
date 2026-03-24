@@ -39,7 +39,7 @@ export default function Hero() {
           </h2>
           
           <p className="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
-            From USTP Cagayan de Oro. Building intelligent systems that combine embedded electronics, full-stack web platforms, IoT Projects and AI-driven automotive solutions.
+            From USTP Cagayan de Oro. Building intelligent systems that combine embedded electronics, full-stack web platforms, IoT Projects and AI-driven integrated solutions.
           </p>
 
           <div className="flex gap-4 flex-wrap mb-12">
