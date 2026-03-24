@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -38,43 +39,72 @@ export default function Chatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/javiersiliacay-portfolio/api/chat", {
+      const apiKey = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY || "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";
+      const model = process.env.NEXT_PUBLIC_CHATBOT_MODEL || "stepfun/step-3.5-flash:free";
+
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...messages, userMessage].slice(-10) }),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey.trim()}`,
+        },
+        body: JSON.stringify({
+          model: model,
+          stream: true,
+          messages: [
+            {
+              role: "system",
+              content: "You are Javier Siliacay AI Support. Answer as Javier. Use plain text only. No symbols. Stay professional."
+            },
+            ...messages.slice(-6),
+            userMessage
+          ]
+        }),
       });
 
-      if (!response.ok) throw new Error("Failed to connect to AI");
-      if (!response.body) throw new Error("No response body");
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error("AI Error:", errText);
+        throw new Error(`API Error: ${response.status}`);
+      }
 
-      const reader = response.body.getReader();
+      const reader = response.body?.getReader();
+      if (!reader) throw new Error("Stream error");
+
       const decoder = new TextDecoder();
       let assistantContent = "";
-
-      // Add placeholder assistant message
       setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
-      setIsLoading(false); // Stop showing the loading spinner, start streaming
+      setIsLoading(false);
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
         const chunk = decoder.decode(value);
-        assistantContent += chunk;
+        const lines = chunk.split("\n");
 
-        // Update the last message (the assistant's content)
-        setMessages((prev) => {
-          const newMessages = [...prev];
-          newMessages[newMessages.length - 1] = { 
-            role: "assistant", 
-            content: assistantContent 
-          };
-          return newMessages;
-        });
+        for (const line of lines) {
+          if (!line.trim() || line.includes("data: [DONE]")) continue;
+          if (line.startsWith("data: ")) {
+            try {
+              const data = JSON.parse(line.slice(6));
+              const content = data.choices[0]?.delta?.content || "";
+              if (content) {
+                assistantContent += content;
+                setMessages((prev) => {
+                  const newMsgs = [...prev];
+                  newMsgs[newMsgs.length - 1].content = assistantContent;
+                  return newMsgs;
+                });
+              }
+            } catch (e) {}
+          }
+        }
       }
-    } catch (error) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Internal Error";
       console.error("Chat Error:", error);
-      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I had trouble connecting. Please try again." }]);
+      setMessages((prev) => [...prev, { role: "assistant", content: `System Error: ${errorMessage}` }]);
     } finally {
       setIsLoading(false);
     }
